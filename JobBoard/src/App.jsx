@@ -8,7 +8,7 @@ function App() {
 
   return (
     <>
-      <h1>Hello </h1>
+      <h1 className='text-warning'>Hello </h1>
     </>
   );
 }
