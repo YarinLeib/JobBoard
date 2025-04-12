@@ -6,7 +6,7 @@ export function HomePage() {
     <img
       src="/public/logo.png"
       alt="Logo"
-      style={{ height: "40px", width: "40px", objectFit: "contain" }}
+      style={{ height: "80px", width: "80px", objectFit: "contain" }}
     />
       </div>
       <div>
