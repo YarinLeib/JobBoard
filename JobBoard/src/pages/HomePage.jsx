@@ -1,9 +1,13 @@
 export function HomePage() {
   return (
     <div>
-      <div className='p-3 mb-4 bg-secondary'>
-        <h1 className='text-warning text-center'>JobBoard </h1>
-        <img src='/public/logo.png' alt='logo' className='h-10 w-auto ml-auto' /> 
+       <div className="p-3 mb-4 bg-secondary d-flex align-items-center justify-content-between">
+    <h1 className="text-warning text-center m-0 flex-grow-1">JobBoard</h1>
+    <img
+      src="/public/logo.png"
+      alt="Logo"
+      style={{ height: "40px", width: "40px", objectFit: "contain" }}
+    />
       </div>
       <div>
         <h2>Welcome</h2>
