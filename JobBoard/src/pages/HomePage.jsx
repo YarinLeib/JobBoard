@@ -3,6 +3,7 @@ export function HomePage() {
     <div>
       <div className='p-3 mb-4 bg-secondary'>
         <h1 className='text-warning text-center'>JobBoard </h1>
+        <img src='/public/logo.png' alt='Logo' className='h-10 w-auto ml-auto' />
       </div>
       <div>
         <h2>Welcome</h2>

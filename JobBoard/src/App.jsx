@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { HomePage } from './pages/HomePage';
 import { Seeker } from './pages/Seeker';
+import { Employer } from './pages/Employer';
 import './App.css';
 
 function App() {
@@ -9,6 +10,8 @@ function App() {
       <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='/seeker' element={<Seeker />} />
+        <Route path='/employer' element={<Employer />} />
+        <Route path='*' element={<h1>404 Not Found</h1>} />
       </Routes>
     </Router>
   );
