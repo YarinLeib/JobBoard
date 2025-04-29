@@ -1,0 +1,272 @@
+[
+  {
+    "id": 1,
+    "companyName": "TechNova",
+    "jobTitle": "Frontend Developer",
+    "jobDescription": "Develop and maintain modern web interfaces using React and TypeScript.",
+    "jobRequirements": "2+ years React, TypeScript, REST APIs.",
+    "salaryRange": "$70,000 - $90,000",
+    "jobLocation": "New York, NY"
+  },
+  {
+    "id": 2,
+    "companyName": "Green Energy Solutions",
+    "jobTitle": "Backend Developer",
+    "jobDescription": "Build scalable server-side applications with Node.js and MongoDB.",
+    "jobRequirements": "Strong Node.js, Express, NoSQL database experience.",
+    "salaryRange": "$80,000 - $100,000",
+    "jobLocation": "Austin, TX"
+  },
+  {
+    "id": 3,
+    "companyName": "HealthBridge",
+    "jobTitle": "Full Stack Engineer",
+    "jobDescription": "Work across frontend and backend to deliver healthcare solutions.",
+    "jobRequirements": "React, Node.js, AWS cloud experience.",
+    "salaryRange": "$90,000 - $110,000",
+    "jobLocation": "Remote"
+  },
+  {
+    "id": 4,
+    "companyName": "EduSmart",
+    "jobTitle": "Product Manager",
+    "jobDescription": "Define product vision and manage cross-functional teams.",
+    "jobRequirements": "Agile methodology, strong leadership and communication skills.",
+    "salaryRange": "$100,000 - $130,000",
+    "jobLocation": "Boston, MA"
+  },
+  {
+    "id": 5,
+    "companyName": "CyberNetics",
+    "jobTitle": "Cybersecurity Analyst",
+    "jobDescription": "Monitor and protect company assets against threats.",
+    "jobRequirements": "Experience with firewalls, SIEMs, and incident response.",
+    "salaryRange": "$85,000 - $105,000",
+    "jobLocation": "San Diego, CA"
+  },
+  {
+    "id": 6,
+    "companyName": "FinTech World",
+    "jobTitle": "Data Analyst",
+    "jobDescription": "Analyze business data to provide insights for decision making.",
+    "jobRequirements": "SQL, Python, data visualization skills (Power BI, Tableau).",
+    "salaryRange": "$70,000 - $90,000",
+    "jobLocation": "Chicago, IL"
+  },
+  {
+    "id": 7,
+    "companyName": "AutoMotiveX",
+    "jobTitle": "Mechanical Engineer",
+    "jobDescription": "Design and develop automotive components.",
+    "jobRequirements": "CAD software, mechanical systems experience.",
+    "salaryRange": "$75,000 - $95,000",
+    "jobLocation": "Detroit, MI"
+  },
+  {
+    "id": 8,
+    "companyName": "RetailCo",
+    "jobTitle": "Marketing Manager",
+    "jobDescription": "Create and execute marketing strategies to boost brand awareness.",
+    "jobRequirements": "SEO, SEM, social media marketing experience.",
+    "salaryRange": "$80,000 - $100,000",
+    "jobLocation": "Atlanta, GA"
+  },
+  {
+    "id": 9,
+    "companyName": "QuantumSoft",
+    "jobTitle": "Software Tester",
+    "jobDescription": "Test software applications and report bugs.",
+    "jobRequirements": "Manual and automated testing skills (Selenium, Cypress).",
+    "salaryRange": "$65,000 - $80,000",
+    "jobLocation": "Remote"
+  },
+  {
+    "id": 10,
+    "companyName": "SpaceY",
+    "jobTitle": "Aerospace Engineer",
+    "jobDescription": "Develop spacecraft components and propulsion systems.",
+    "jobRequirements": "Experience with propulsion, CAD tools, materials science.",
+    "salaryRange": "$110,000 - $140,000",
+    "jobLocation": "Los Angeles, CA"
+  },
+  {
+    "id": 11,
+    "companyName": "MediHealth",
+    "jobTitle": "Medical Sales Representative",
+    "jobDescription": "Sell medical devices to healthcare professionals.",
+    "jobRequirements": "Sales experience, healthcare knowledge.",
+    "salaryRange": "$60,000 - $80,000",
+    "jobLocation": "Miami, FL"
+  },
+  {
+    "id": 12,
+    "companyName": "AgriTech",
+    "jobTitle": "Agricultural Scientist",
+    "jobDescription": "Conduct research to improve crop production.",
+    "jobRequirements": "Botany, soil science, agronomy experience.",
+    "salaryRange": "$70,000 - $90,000",
+    "jobLocation": "Lincoln, NE"
+  },
+  {
+    "id": 13,
+    "companyName": "CityBuild",
+    "jobTitle": "Civil Engineer",
+    "jobDescription": "Plan and oversee construction projects.",
+    "jobRequirements": "AutoCAD, project management, strong technical skills.",
+    "salaryRange": "$80,000 - $100,000",
+    "jobLocation": "Seattle, WA"
+  },
+  {
+    "id": 14,
+    "companyName": "SmartLogistics",
+    "jobTitle": "Logistics Manager",
+    "jobDescription": "Manage supply chain operations and warehouse efficiency.",
+    "jobRequirements": "Supply chain management, ERP systems.",
+    "salaryRange": "$85,000 - $105,000",
+    "jobLocation": "Dallas, TX"
+  },
+  {
+    "id": 15,
+    "companyName": "LearnPro",
+    "jobTitle": "Instructional Designer",
+    "jobDescription": "Design online learning materials and courses.",
+    "jobRequirements": "eLearning software, instructional design principles.",
+    "salaryRange": "$65,000 - $85,000",
+    "jobLocation": "Orlando, FL"
+  },
+  {
+    "id": 16,
+    "companyName": "BuildWise",
+    "jobTitle": "Construction Manager",
+    "jobDescription": "Coordinate construction projects from beginning to end.",
+    "jobRequirements": "On-site management experience, safety compliance knowledge.",
+    "salaryRange": "$90,000 - $120,000",
+    "jobLocation": "Denver, CO"
+  },
+  {
+    "id": 17,
+    "companyName": "BrightMedia",
+    "jobTitle": "Content Writer",
+    "jobDescription": "Write engaging articles for blogs and websites.",
+    "jobRequirements": "Excellent writing and SEO knowledge.",
+    "salaryRange": "$50,000 - $65,000",
+    "jobLocation": "Remote"
+  },
+  {
+    "id": 18,
+    "companyName": "SkyNetworks",
+    "jobTitle": "Network Engineer",
+    "jobDescription": "Design, implement, and troubleshoot network systems.",
+    "jobRequirements": "Cisco certification, LAN/WAN experience.",
+    "salaryRange": "$80,000 - $100,000",
+    "jobLocation": "Charlotte, NC"
+  },
+  {
+    "id": 19,
+    "companyName": "RoboTech",
+    "jobTitle": "Robotics Engineer",
+    "jobDescription": "Design and program robotic systems for automation.",
+    "jobRequirements": "Mechanical design, control systems, programming skills.",
+    "salaryRange": "$95,000 - $120,000",
+    "jobLocation": "Pittsburgh, PA"
+  },
+  {
+    "id": 20,
+    "companyName": "Oceanic",
+    "jobTitle": "Marine Biologist",
+    "jobDescription": "Research marine organisms and ecosystems.",
+    "jobRequirements": "Field research experience, marine science degree.",
+    "salaryRange": "$70,000 - $90,000",
+    "jobLocation": "Honolulu, HI"
+  },
+  {
+    "id": 21,
+    "companyName": "PhotonAI",
+    "jobTitle": "AI Researcher",
+    "jobDescription": "Develop AI algorithms and models.",
+    "jobRequirements": "Machine learning, deep learning frameworks experience.",
+    "salaryRange": "$120,000 - $150,000",
+    "jobLocation": "San Francisco, CA"
+  },
+  {
+    "id": 22,
+    "companyName": "ClearBank",
+    "jobTitle": "Financial Analyst",
+    "jobDescription": "Analyze financial data and create reports for management.",
+    "jobRequirements": "Excel, financial modeling, CPA preferred.",
+    "salaryRange": "$75,000 - $95,000",
+    "jobLocation": "Newark, NJ"
+  },
+  {
+    "id": 23,
+    "companyName": "SolarWise",
+    "jobTitle": "Solar Energy Technician",
+    "jobDescription": "Install and maintain solar panels.",
+    "jobRequirements": "Technical installation skills, electrical systems knowledge.",
+    "salaryRange": "$55,000 - $70,000",
+    "jobLocation": "Phoenix, AZ"
+  },
+  {
+    "id": 24,
+    "companyName": "EcoSmart",
+    "jobTitle": "Environmental Scientist",
+    "jobDescription": "Study and find solutions to environmental problems.",
+    "jobRequirements": "Field work experience, environmental science degree.",
+    "salaryRange": "$70,000 - $85,000",
+    "jobLocation": "Portland, OR"
+  },
+  {
+    "id": 25,
+    "companyName": "FleetPro",
+    "jobTitle": "Fleet Manager",
+    "jobDescription": "Manage company vehicle fleet and ensure optimal operation.",
+    "jobRequirements": "Fleet management software, logistics skills.",
+    "salaryRange": "$75,000 - $95,000",
+    "jobLocation": "Columbus, OH"
+  },
+  {
+    "id": 26,
+    "companyName": "TravelCo",
+    "jobTitle": "Travel Agent",
+    "jobDescription": "Plan and sell transportation and accommodation for clients.",
+    "jobRequirements": "Travel software skills, excellent communication.",
+    "salaryRange": "$45,000 - $60,000",
+    "jobLocation": "Las Vegas, NV"
+  },
+  {
+    "id": 27,
+    "companyName": "GameCraft",
+    "jobTitle": "Game Developer",
+    "jobDescription": "Develop and test video games using Unity or Unreal Engine.",
+    "jobRequirements": "C#, C++, Unity/Unreal experience.",
+    "salaryRange": "$80,000 - $100,000",
+    "jobLocation": "Seattle, WA"
+  },
+  {
+    "id": 28,
+    "companyName": "UrbanDesign",
+    "jobTitle": "Urban Planner",
+    "jobDescription": "Design city layouts and optimize urban development.",
+    "jobRequirements": "GIS software, urban planning degree.",
+    "salaryRange": "$70,000 - $90,000",
+    "jobLocation": "Philadelphia, PA"
+  },
+  {
+    "id": 29,
+    "companyName": "NextGen Learning",
+    "jobTitle": "Education Consultant",
+    "jobDescription": "Advise educational institutions on modern teaching methods.",
+    "jobRequirements": "Curriculum design, education sector experience.",
+    "salaryRange": "$65,000 - $85,000",
+    "jobLocation": "Remote"
+  },
+  {
+    "id": 30,
+    "companyName": "PixelPerfect",
+    "jobTitle": "Graphic Designer",
+    "jobDescription": "Create visual concepts to communicate ideas.",
+    "jobRequirements": "Photoshop, Illustrator, creativity skills.",
+    "salaryRange": "$55,000 - $70,000",
+    "jobLocation": "Remote"
+  }
+]
