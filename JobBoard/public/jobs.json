@@ -5,8 +5,8 @@
     "jobTitle": "Frontend Developer",
     "jobDescription": "Develop and maintain modern web interfaces using React and TypeScript.",
     "jobRequirements": "2+ years React, TypeScript, REST APIs.",
-    "salaryRange": "$70,000 - $90,000",
-    "jobLocation": "New York, NY"
+    "salaryRange": "€55,000 - €75,000",
+    "jobLocation": "Berlin, Germany"
   },
   {
     "id": 2,
@@ -14,8 +14,8 @@
     "jobTitle": "Backend Developer",
     "jobDescription": "Build scalable server-side applications with Node.js and MongoDB.",
     "jobRequirements": "Strong Node.js, Express, NoSQL database experience.",
-    "salaryRange": "$80,000 - $100,000",
-    "jobLocation": "Austin, TX"
+    "salaryRange": "€60,000 - €80,000",
+    "jobLocation": "Amsterdam, Netherlands"
   },
   {
     "id": 3,
@@ -23,8 +23,8 @@
     "jobTitle": "Full Stack Engineer",
     "jobDescription": "Work across frontend and backend to deliver healthcare solutions.",
     "jobRequirements": "React, Node.js, AWS cloud experience.",
-    "salaryRange": "$90,000 - $110,000",
-    "jobLocation": "Remote"
+    "salaryRange": "€65,000 - €85,000",
+    "jobLocation": "Remote (Europe)"
   },
   {
     "id": 4,
@@ -32,8 +32,8 @@
     "jobTitle": "Product Manager",
     "jobDescription": "Define product vision and manage cross-functional teams.",
     "jobRequirements": "Agile methodology, strong leadership and communication skills.",
-    "salaryRange": "$100,000 - $130,000",
-    "jobLocation": "Boston, MA"
+    "salaryRange": "€70,000 - €90,000",
+    "jobLocation": "Dublin, Ireland"
   },
   {
     "id": 5,
@@ -41,8 +41,8 @@
     "jobTitle": "Cybersecurity Analyst",
     "jobDescription": "Monitor and protect company assets against threats.",
     "jobRequirements": "Experience with firewalls, SIEMs, and incident response.",
-    "salaryRange": "$85,000 - $105,000",
-    "jobLocation": "San Diego, CA"
+    "salaryRange": "€60,000 - €80,000",
+    "jobLocation": "Paris, France"
   },
   {
     "id": 6,
@@ -50,8 +50,8 @@
     "jobTitle": "Data Analyst",
     "jobDescription": "Analyze business data to provide insights for decision making.",
     "jobRequirements": "SQL, Python, data visualization skills (Power BI, Tableau).",
-    "salaryRange": "$70,000 - $90,000",
-    "jobLocation": "Chicago, IL"
+    "salaryRange": "€55,000 - €70,000",
+    "jobLocation": "Frankfurt, Germany"
   },
   {
     "id": 7,
@@ -59,8 +59,8 @@
     "jobTitle": "Mechanical Engineer",
     "jobDescription": "Design and develop automotive components.",
     "jobRequirements": "CAD software, mechanical systems experience.",
-    "salaryRange": "$75,000 - $95,000",
-    "jobLocation": "Detroit, MI"
+    "salaryRange": "€50,000 - €65,000",
+    "jobLocation": "Turin, Italy"
   },
   {
     "id": 8,
@@ -68,8 +68,8 @@
     "jobTitle": "Marketing Manager",
     "jobDescription": "Create and execute marketing strategies to boost brand awareness.",
     "jobRequirements": "SEO, SEM, social media marketing experience.",
-    "salaryRange": "$80,000 - $100,000",
-    "jobLocation": "Atlanta, GA"
+    "salaryRange": "€60,000 - €75,000",
+    "jobLocation": "Madrid, Spain"
   },
   {
     "id": 9,
@@ -77,8 +77,8 @@
     "jobTitle": "Software Tester",
     "jobDescription": "Test software applications and report bugs.",
     "jobRequirements": "Manual and automated testing skills (Selenium, Cypress).",
-    "salaryRange": "$65,000 - $80,000",
-    "jobLocation": "Remote"
+    "salaryRange": "€45,000 - €60,000",
+    "jobLocation": "Lisbon, Portugal"
   },
   {
     "id": 10,
@@ -86,8 +86,8 @@
     "jobTitle": "Aerospace Engineer",
     "jobDescription": "Develop spacecraft components and propulsion systems.",
     "jobRequirements": "Experience with propulsion, CAD tools, materials science.",
-    "salaryRange": "$110,000 - $140,000",
-    "jobLocation": "Los Angeles, CA"
+    "salaryRange": "€80,000 - €110,000",
+    "jobLocation": "Toulouse, France"
   },
   {
     "id": 11,
@@ -95,8 +95,8 @@
     "jobTitle": "Medical Sales Representative",
     "jobDescription": "Sell medical devices to healthcare professionals.",
     "jobRequirements": "Sales experience, healthcare knowledge.",
-    "salaryRange": "$60,000 - $80,000",
-    "jobLocation": "Miami, FL"
+    "salaryRange": "€45,000 - €60,000",
+    "jobLocation": "Brussels, Belgium"
   },
   {
     "id": 12,
@@ -104,8 +104,8 @@
     "jobTitle": "Agricultural Scientist",
     "jobDescription": "Conduct research to improve crop production.",
     "jobRequirements": "Botany, soil science, agronomy experience.",
-    "salaryRange": "$70,000 - $90,000",
-    "jobLocation": "Lincoln, NE"
+    "salaryRange": "€50,000 - €65,000",
+    "jobLocation": "Lyon, France"
   },
   {
     "id": 13,
@@ -113,8 +113,8 @@
     "jobTitle": "Civil Engineer",
     "jobDescription": "Plan and oversee construction projects.",
     "jobRequirements": "AutoCAD, project management, strong technical skills.",
-    "salaryRange": "$80,000 - $100,000",
-    "jobLocation": "Seattle, WA"
+    "salaryRange": "€60,000 - €80,000",
+    "jobLocation": "Vienna, Austria"
   },
   {
     "id": 14,
@@ -122,8 +122,8 @@
     "jobTitle": "Logistics Manager",
     "jobDescription": "Manage supply chain operations and warehouse efficiency.",
     "jobRequirements": "Supply chain management, ERP systems.",
-    "salaryRange": "$85,000 - $105,000",
-    "jobLocation": "Dallas, TX"
+    "salaryRange": "€65,000 - €85,000",
+    "jobLocation": "Rotterdam, Netherlands"
   },
   {
     "id": 15,
@@ -131,8 +131,8 @@
     "jobTitle": "Instructional Designer",
     "jobDescription": "Design online learning materials and courses.",
     "jobRequirements": "eLearning software, instructional design principles.",
-    "salaryRange": "$65,000 - $85,000",
-    "jobLocation": "Orlando, FL"
+    "salaryRange": "€50,000 - €65,000",
+    "jobLocation": "Helsinki, Finland"
   },
   {
     "id": 16,
@@ -140,8 +140,8 @@
     "jobTitle": "Construction Manager",
     "jobDescription": "Coordinate construction projects from beginning to end.",
     "jobRequirements": "On-site management experience, safety compliance knowledge.",
-    "salaryRange": "$90,000 - $120,000",
-    "jobLocation": "Denver, CO"
+    "salaryRange": "€70,000 - €90,000",
+    "jobLocation": "Munich, Germany"
   },
   {
     "id": 17,
@@ -149,8 +149,8 @@
     "jobTitle": "Content Writer",
     "jobDescription": "Write engaging articles for blogs and websites.",
     "jobRequirements": "Excellent writing and SEO knowledge.",
-    "salaryRange": "$50,000 - $65,000",
-    "jobLocation": "Remote"
+    "salaryRange": "€35,000 - €50,000",
+    "jobLocation": "Remote (Europe)"
   },
   {
     "id": 18,
@@ -158,8 +158,8 @@
     "jobTitle": "Network Engineer",
     "jobDescription": "Design, implement, and troubleshoot network systems.",
     "jobRequirements": "Cisco certification, LAN/WAN experience.",
-    "salaryRange": "$80,000 - $100,000",
-    "jobLocation": "Charlotte, NC"
+    "salaryRange": "€60,000 - €80,000",
+    "jobLocation": "Warsaw, Poland"
   },
   {
     "id": 19,
@@ -167,8 +167,8 @@
     "jobTitle": "Robotics Engineer",
     "jobDescription": "Design and program robotic systems for automation.",
     "jobRequirements": "Mechanical design, control systems, programming skills.",
-    "salaryRange": "$95,000 - $120,000",
-    "jobLocation": "Pittsburgh, PA"
+    "salaryRange": "€75,000 - €95,000",
+    "jobLocation": "Zurich, Switzerland"
   },
   {
     "id": 20,
@@ -176,8 +176,8 @@
     "jobTitle": "Marine Biologist",
     "jobDescription": "Research marine organisms and ecosystems.",
     "jobRequirements": "Field research experience, marine science degree.",
-    "salaryRange": "$70,000 - $90,000",
-    "jobLocation": "Honolulu, HI"
+    "salaryRange": "€55,000 - €70,000",
+    "jobLocation": "Valencia, Spain"
   },
   {
     "id": 21,
@@ -185,8 +185,8 @@
     "jobTitle": "AI Researcher",
     "jobDescription": "Develop AI algorithms and models.",
     "jobRequirements": "Machine learning, deep learning frameworks experience.",
-    "salaryRange": "$120,000 - $150,000",
-    "jobLocation": "San Francisco, CA"
+    "salaryRange": "£90,000 - £120,000",
+    "jobLocation": "London, UK"
   },
   {
     "id": 22,
@@ -194,8 +194,8 @@
     "jobTitle": "Financial Analyst",
     "jobDescription": "Analyze financial data and create reports for management.",
     "jobRequirements": "Excel, financial modeling, CPA preferred.",
-    "salaryRange": "$75,000 - $95,000",
-    "jobLocation": "Newark, NJ"
+    "salaryRange": "€60,000 - €80,000",
+    "jobLocation": "Milan, Italy"
   },
   {
     "id": 23,
@@ -203,8 +203,8 @@
     "jobTitle": "Solar Energy Technician",
     "jobDescription": "Install and maintain solar panels.",
     "jobRequirements": "Technical installation skills, electrical systems knowledge.",
-    "salaryRange": "$55,000 - $70,000",
-    "jobLocation": "Phoenix, AZ"
+    "salaryRange": "€40,000 - €55,000",
+    "jobLocation": "Athens, Greece"
   },
   {
     "id": 24,
@@ -212,8 +212,8 @@
     "jobTitle": "Environmental Scientist",
     "jobDescription": "Study and find solutions to environmental problems.",
     "jobRequirements": "Field work experience, environmental science degree.",
-    "salaryRange": "$70,000 - $85,000",
-    "jobLocation": "Portland, OR"
+    "salaryRange": "€55,000 - €70,000",
+    "jobLocation": "Oslo, Norway"
   },
   {
     "id": 25,
@@ -221,8 +221,8 @@
     "jobTitle": "Fleet Manager",
     "jobDescription": "Manage company vehicle fleet and ensure optimal operation.",
     "jobRequirements": "Fleet management software, logistics skills.",
-    "salaryRange": "$75,000 - $95,000",
-    "jobLocation": "Columbus, OH"
+    "salaryRange": "€60,000 - €75,000",
+    "jobLocation": "Copenhagen, Denmark"
   },
   {
     "id": 26,
@@ -230,8 +230,8 @@
     "jobTitle": "Travel Agent",
     "jobDescription": "Plan and sell transportation and accommodation for clients.",
     "jobRequirements": "Travel software skills, excellent communication.",
-    "salaryRange": "$45,000 - $60,000",
-    "jobLocation": "Las Vegas, NV"
+    "salaryRange": "€35,000 - €50,000",
+    "jobLocation": "Barcelona, Spain"
   },
   {
     "id": 27,
@@ -239,8 +239,8 @@
     "jobTitle": "Game Developer",
     "jobDescription": "Develop and test video games using Unity or Unreal Engine.",
     "jobRequirements": "C#, C++, Unity/Unreal experience.",
-    "salaryRange": "$80,000 - $100,000",
-    "jobLocation": "Seattle, WA"
+    "salaryRange": "€60,000 - €80,000",
+    "jobLocation": "Stockholm, Sweden"
   },
   {
     "id": 28,
@@ -248,8 +248,8 @@
     "jobTitle": "Urban Planner",
     "jobDescription": "Design city layouts and optimize urban development.",
     "jobRequirements": "GIS software, urban planning degree.",
-    "salaryRange": "$70,000 - $90,000",
-    "jobLocation": "Philadelphia, PA"
+    "salaryRange": "€50,000 - €70,000",
+    "jobLocation": "Prague, Czech Republic"
   },
   {
     "id": 29,
@@ -257,8 +257,8 @@
     "jobTitle": "Education Consultant",
     "jobDescription": "Advise educational institutions on modern teaching methods.",
     "jobRequirements": "Curriculum design, education sector experience.",
-    "salaryRange": "$65,000 - $85,000",
-    "jobLocation": "Remote"
+    "salaryRange": "€50,000 - €65,000",
+    "jobLocation": "Remote (Europe)"
   },
   {
     "id": 30,
@@ -266,7 +266,7 @@
     "jobTitle": "Graphic Designer",
     "jobDescription": "Create visual concepts to communicate ideas.",
     "jobRequirements": "Photoshop, Illustrator, creativity skills.",
-    "salaryRange": "$55,000 - $70,000",
-    "jobLocation": "Remote"
+    "salaryRange": "€40,000 - €55,000",
+    "jobLocation": "Remote (Europe)"
   }
 ]
