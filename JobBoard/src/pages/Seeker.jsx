@@ -31,18 +31,15 @@ export function Seeker() {
   const filteredJobs = jobs.filter((job) => {
     const jobTitle = job.jobTitle.toLowerCase();
     const jobLoc = job.jobLocation.toLowerCase();
-    const salaryStr = job.salaryRange.replace(/[^0-9\-]/g, ''); // remove commas and symbols
+    const salaryStr = job.salaryRange.replace(/[^0-9-]/g, ''); // remove commas and symbols
     const [min, max] = salaryStr.split('-').map(Number); // convert to numbers
-  
+
     const keywordMatch = !keyword || jobTitle.includes(keyword);
     const locationMatch = !locationFilter || jobLoc.includes(locationFilter);
-    const salaryMatch =
-      (!minSalary || max >= minSalary) &&
-      (!maxSalary || min <= maxSalary);
-  
+    const salaryMatch = (!minSalary || max >= minSalary) && (!maxSalary || min <= maxSalary);
+
     return keywordMatch && locationMatch && salaryMatch;
   });
-  
 
   return (
     <div className='container mt-4'>
@@ -60,8 +57,7 @@ export function Seeker() {
                 onClick={() => {
                   setSelectedJob(job);
                   window.scrollTo({ top: 0, behavior: 'smooth' });
-                }}
-              >
+                }}>
                 <div className='card-body'>
                   <h5 className='card-title'>{job.jobTitle}</h5>
                   <h6 className='card-subtitle mb-2 text-muted'>{job.companyName}</h6>
@@ -121,8 +117,7 @@ export function Seeker() {
           position: 'fixed',
           bottom: '20px',
           right: '20px',
-        }}
-      >
+        }}>
         ↑ Top
       </button>
     </div>
