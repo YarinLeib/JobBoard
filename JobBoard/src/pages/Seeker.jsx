@@ -29,25 +29,20 @@ export function Seeker() {
 
   // Filter logic
   const filteredJobs = jobs.filter((job) => {
-    const matchesKeyword = keyword
-      ? job.jobTitle.toLowerCase().includes(keyword) ||
-        job.jobDescription.toLowerCase().includes(keyword)
-      : true;
-
-    const matchesLocation = locationFilter
-      ? job.jobLocation.toLowerCase().includes(locationFilter)
-      : true;
-
-    // Extract salary number from string like "€2,000 - €3,000"
-    const salaryNumbers = job.salaryRange?.match(/\d+/g)?.map(Number);
-    const jobSalary = salaryNumbers?.length ? salaryNumbers[0] : 0;
-
-    const matchesSalary =
-      (!minSalary || jobSalary >= minSalary) &&
-      (!maxSalary || jobSalary <= maxSalary);
-
-    return matchesKeyword && matchesLocation && matchesSalary;
+    const jobTitle = job.jobTitle.toLowerCase();
+    const jobLoc = job.jobLocation.toLowerCase();
+    const salaryStr = job.salaryRange.replace(/[^0-9\-]/g, ''); // remove commas and symbols
+    const [min, max] = salaryStr.split('-').map(Number); // convert to numbers
+  
+    const keywordMatch = !keyword || jobTitle.includes(keyword);
+    const locationMatch = !locationFilter || jobLoc.includes(locationFilter);
+    const salaryMatch =
+      (!minSalary || max >= minSalary) &&
+      (!maxSalary || min <= maxSalary);
+  
+    return keywordMatch && locationMatch && salaryMatch;
   });
+  
 
   return (
     <div className='container mt-4'>
