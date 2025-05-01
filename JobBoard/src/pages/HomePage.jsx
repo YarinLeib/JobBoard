@@ -12,7 +12,7 @@ export function HomePage() {
         <p>Welcome to the JobBoard application!</p>
         <h2>Are you a</h2>
         <button onClick={() => navigate('/employer')}>Employer</button>
-        <button onClick={() => navigate('/seeker')}>Job Seeker</button>
+        <button onClick={() => navigate('/filter')}>Job Seeker</button>
       </div>
     </div>
   );
