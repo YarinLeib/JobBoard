@@ -60,7 +60,9 @@ export function Seeker() {
                 <p>
                   <strong>Salary:</strong> {selectedJob.salaryRange}
                 </p>
-                <button className='btn btn-success'>Apply Now</button>
+                <button className='btn btn-success' onClick={() => navigate(`/Seeker/${selectedJob.id}`)}>
+                  Apply Now
+                </button>
               </div>
             </div>
           ) : (
