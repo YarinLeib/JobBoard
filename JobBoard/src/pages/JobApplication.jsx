@@ -9,6 +9,7 @@ export function JobApplication() {
   const location = useLocation();
   const [job, setJob] = useState(null);
   const navigate = useNavigate();
+  const [phone, setPhone] = useState('');
 
   useEffect(() => {
     axios.get('/jobs.json').then((response) => {
@@ -23,6 +24,31 @@ export function JobApplication() {
 
   const handleBack = () => {
     navigate(`/seeker${location.search}`);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const resume = document.getElementById('resume').files[0];
+
+    if (!name) {
+      alert('Please fill Name.');
+      return;
+    }
+    if (!email) {
+      alert('Please fill Email.');
+      return;
+    }
+    if (!phone) {
+      alert('Please fill Phone Number.');
+      return;
+    }
+    if (!resume) {
+      alert('Please upload Resume.');
+      return;
+    }
   };
 
   return (
@@ -65,7 +91,7 @@ export function JobApplication() {
         <strong>Application Deadline:</strong> {new Date(job.jobExpiryDate).toLocaleDateString()}
       </p>
 
-      <form className='mt-4 position-relative' style={{ overflow: 'visible' }}>
+      <form onSubmit={handleSubmit} className='mt-4 position-relative' style={{ overflow: 'visible' }}>
         <div className='mb-3'>
           <label htmlFor='coverLetter' className='form-label'>
             Cover Letter
@@ -74,32 +100,36 @@ export function JobApplication() {
         </div>
         <div className='mb-3'>
           <label htmlFor='resume' className='form-label'>
-            Upload Resume
+            Upload Resume<span className='text-danger'>*</span>
           </label>
           <input type='file' className='form-control' id='resume' />
         </div>
         <div className='mb-3'>
+          Name<span className='text-danger'>*</span>
           <input type='text' className='form-control' placeholder='name' id='name' />
         </div>
         <div className='mb-3'>
           <label htmlFor='phone' className='form-label'>
-            Phone Number
+            Phone Number<span className='text-danger'>*</span>
           </label>
           <div className='d-flex justify-content-center'>
             <PhoneInput
               country={'us'}
               enableSearch={true}
               inputClass='form-control'
-              containerStyle={{ zIndex: 1000, width: '100%', maxWidth: '400px' }}
+              containerStyle={{ maxWidth: '300px' }}
               inputProps={{
                 name: 'phone',
                 required: true,
                 id: 'phone',
               }}
+              value={phone}
+              onChange={setPhone}
             />
           </div>
         </div>
         <div className='mb-3'>
+          Email <span className='text-danger'>*</span>
           <input type='email' className='form-control' placeholder='email' id='email' />
         </div>
 
