@@ -8,7 +8,8 @@ export function JobFilter() {
   const [location, setLocation] = useState('');
   const [minSalary, setMinSalary] = useState('');
 
-  const handleSearch = () => {
+  const handleSearch = (e) => {
+    e.preventDefault();
     const params = new URLSearchParams();
     if (keywords) params.append('keywords', keywords);
     if (location) params.append('location', location);
@@ -43,7 +44,7 @@ export function JobFilter() {
           />
         </div>
 
-        <button className='btn btn-success' onClick={handleSearch}>
+        <button type='submit' className='btn btn-success'>
           Search Jobs
         </button>
       </form>

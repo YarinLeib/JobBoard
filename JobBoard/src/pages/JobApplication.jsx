@@ -1,10 +1,10 @@
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 export function JobApplication() {
   const { id } = useParams();
+  const location = useLocation();
   const [job, setJob] = useState(null);
   const navigate = useNavigate();
 
@@ -19,6 +19,10 @@ export function JobApplication() {
     return <div>Loading...</div>;
   }
 
+  const handleBack = () => {
+    navigate(`/seeker${location.search}`);
+  };
+
   return (
     <div className='container mt-4'>
       <h2 className='text-primary text-center mb-4'>Apply for: {job.jobTitle}</h2>
@@ -28,7 +32,7 @@ export function JobApplication() {
       <p>
         <strong>Description:</strong> {job.jobDescription}
       </p>
-      <button className='btn btn-primary' onClick={() => navigate('/seeker')}>
+      <button className='btn btn-primary' onClick={handleBack}>
         Back to Job Listings
       </button>
     </div>
