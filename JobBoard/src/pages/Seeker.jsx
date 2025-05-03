@@ -77,6 +77,9 @@ export function Seeker() {
           {selectedJob ? (
             <div className='card'>
               <div className='card-body'>
+                <div className='text-center mb-3'>
+                  <img src={selectedJob.companyLogo} alt={selectedJob.jobTitle} className='img-fluid' />
+                </div>
                 <h3 className='card-title'>{selectedJob.jobTitle}</h3>
                 <h5 className='card-subtitle mb-3 text-muted'>{selectedJob.companyName}</h5>
                 <p className='card-text'>{selectedJob.jobDescription}</p>
