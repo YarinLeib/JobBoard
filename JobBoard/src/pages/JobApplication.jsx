@@ -1,10 +1,12 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 export function JobApplication() {
   const { id } = useParams();
   const [job, setJob] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios.get('/jobs.json').then((response) => {
@@ -26,6 +28,9 @@ export function JobApplication() {
       <p>
         <strong>Description:</strong> {job.jobDescription}
       </p>
+      <button className='btn btn-primary' onClick={() => navigate('/seeker')}>
+        Back to Job Listings
+      </button>
     </div>
   );
 }
