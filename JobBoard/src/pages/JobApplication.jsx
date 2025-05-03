@@ -26,6 +26,7 @@ export function JobApplication() {
   return (
     <div className='container mt-4'>
       <h2 className='text-primary text-center mb-4'>Apply for: {job.jobTitle}</h2>
+      <img src={job.companyLogo} alt={job.jobTitle} className='img-fluid mb-3' />
       <p>
         <strong>Company:</strong> {job.companyName}
       </p>
