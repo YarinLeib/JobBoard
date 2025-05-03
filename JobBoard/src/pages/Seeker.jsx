@@ -43,7 +43,12 @@ export function Seeker() {
 
   return (
     <div className='container mt-4'>
-      <h1 className='text-warning text-center mb-4'>JobBoard</h1>
+      <div className='d-flex justify-content-between align-items-center mb-4 position-relative'>
+        <button className='btn btn-primary position-absolute start-0' onClick={() => navigate('/')}>
+          Back
+        </button>
+        <h1 className='text-warning text-center w-100 m-0'>JobBoard</h1>
+      </div>
 
       <div className='row'>
         {/* Job list */}
@@ -108,9 +113,9 @@ export function Seeker() {
       </div>
 
       {/* Navigation buttons */}
-      <div className='text-center mt-4'>
+      <div className='mt-4 text-start'>
         <button className='btn btn-primary' onClick={() => navigate('/')}>
-          Go back
+          back
         </button>
       </div>
 
