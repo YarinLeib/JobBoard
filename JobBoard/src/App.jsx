@@ -5,19 +5,25 @@ import { Employer } from './pages/Employer';
 import { JobApplication } from './pages/JobApplication';
 import { JobFilter } from './pages/JobFilter';
 import { NotFound } from './pages/NotFound';
+import { Footer } from './components/Footer';
 import './App.css';
 
 function App() {
   return (
     <Router>
-      <Routes>
-        <Route path='/' element={<HomePage />} />
-        <Route path='/filter' element={<JobFilter />} /> {/* 👈 Add this */}
-        <Route path='/seeker' element={<Seeker />} />
-        <Route path='/employer' element={<Employer />} />
-        <Route path='/seeker/:id' element={<JobApplication />} />
-        <Route path='*' element={<NotFound />} />
-      </Routes>
+      <div className='d-flex flex-column min-vh-100'>
+        <main className='flex-grow-1'>
+          <Routes>
+            <Route path='/' element={<HomePage />} />
+            <Route path='/filter' element={<JobFilter />} />
+            <Route path='/seeker' element={<Seeker />} />
+            <Route path='/employer' element={<Employer />} />
+            <Route path='/seeker/:id' element={<JobApplication />} />
+            <Route path='*' element={<NotFound />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
     </Router>
   );
 }
