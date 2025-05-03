@@ -3,7 +3,8 @@ import { HomePage } from './pages/HomePage';
 import { Seeker } from './pages/Seeker';
 import { Employer } from './pages/Employer';
 import { JobApplication } from './pages/JobApplication';
-import { JobFilter } from './pages/JobFilter'; // 👈 Import it
+import { JobFilter } from './pages/JobFilter';
+import { NotFound } from './pages/NotFound';
 import './App.css';
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
         <Route path='/seeker' element={<Seeker />} />
         <Route path='/employer' element={<Employer />} />
         <Route path='/seeker/:id' element={<JobApplication />} />
-        <Route path='*' element={<h1>404 Not Found</h1>} />
+        <Route path='*' element={<NotFound />} />
       </Routes>
     </Router>
   );
