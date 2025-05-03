@@ -7,6 +7,8 @@ export function Seeker() {
   const location = useLocation();
   const [jobs, setJobs] = useState([]);
   const [selectedJob, setSelectedJob] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const jobsPerPage = 7;
 
   // Get filters from URL
   const params = new URLSearchParams(location.search);
@@ -31,8 +33,8 @@ export function Seeker() {
   const filteredJobs = jobs.filter((job) => {
     const jobTitle = job.jobTitle.toLowerCase();
     const jobLoc = job.jobLocation.toLowerCase();
-    const salaryStr = job.salaryRange.replace(/[^0-9-]/g, ''); // remove commas and symbols
-    const [min, max] = salaryStr.split('-').map(Number); // convert to numbers
+    const salaryStr = job.salaryRange.replace(/[^0-9-]/g, '');
+    const [min, max] = salaryStr.split('-').map(Number);
 
     const keywordMatch = !keyword || jobTitle.includes(keyword);
     const locationMatch = !locationFilter || jobLoc.includes(locationFilter);
@@ -40,6 +42,12 @@ export function Seeker() {
 
     return keywordMatch && locationMatch && salaryMatch;
   });
+
+  // Pagination calculations
+  const totalPages = Math.ceil(filteredJobs.length / jobsPerPage);
+  const indexOfLastJob = currentPage * jobsPerPage;
+  const indexOfFirstJob = indexOfLastJob - jobsPerPage;
+  const currentJobs = filteredJobs.slice(indexOfFirstJob, indexOfLastJob);
 
   return (
     <div className='container mt-4'>
@@ -53,16 +61,9 @@ export function Seeker() {
       <div className='row'>
         {/* Job list */}
         <div className='col-md-5'>
-          {Array.isArray(filteredJobs) && filteredJobs.length > 0 ? (
-            filteredJobs.map((job) => (
-              <div
-                key={job.id}
-                className='card mb-3'
-                style={{ cursor: 'pointer' }}
-                onClick={() => {
-                  setSelectedJob(job);
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }}>
+          {Array.isArray(currentJobs) && currentJobs.length > 0 ? (
+            currentJobs.map((job) => (
+              <div key={job.id} className='card mb-3' style={{ cursor: 'pointer' }} onClick={() => setSelectedJob(job)}>
                 <div className='card-body'>
                   <h5 className='card-title'>{job.jobTitle}</h5>
                   <h6 className='card-subtitle mb-2 text-muted'>{job.companyName}</h6>
@@ -74,6 +75,37 @@ export function Seeker() {
             ))
           ) : (
             <p className='text-muted'>No jobs match your filters.</p>
+          )}
+
+          {/* Pagination controls */}
+          {totalPages > 1 && (
+            <div className='d-flex justify-content-center mt-3 flex-wrap gap-2'>
+              <button
+                className='btn btn-outline-primary btn-sm'
+                onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+                disabled={currentPage === 1}>
+                Prev
+              </button>
+
+              {[...Array(totalPages)].map((_, index) => {
+                const page = index + 1;
+                return (
+                  <button
+                    key={page}
+                    className={`btn btn-sm ${page === currentPage ? 'btn-primary' : 'btn-outline-primary'}`}
+                    onClick={() => setCurrentPage(page)}>
+                    {page}
+                  </button>
+                );
+              })}
+
+              <button
+                className='btn btn-outline-primary btn-sm'
+                onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+                disabled={currentPage === totalPages}>
+                Next
+              </button>
+            </div>
           )}
         </div>
 
@@ -112,24 +144,11 @@ export function Seeker() {
         </div>
       </div>
 
-      {/* Navigation buttons */}
       <div className='mt-4 text-start'>
         <button className='btn btn-primary' onClick={() => navigate('/')}>
           back
         </button>
       </div>
-
-      {/* Scroll to top button */}
-      <button
-        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        className='btn btn-primary'
-        style={{
-          position: 'fixed',
-          bottom: '20px',
-          right: '20px',
-        }}>
-        ↑ Top
-      </button>
     </div>
   );
 }
