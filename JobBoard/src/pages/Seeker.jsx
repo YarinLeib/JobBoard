@@ -10,34 +10,34 @@ export function Seeker() {
   const [currentPage, setCurrentPage] = useState(1);
   const jobsPerPage = 7;
 
-  // Get filters from URL
+  // Extract filters from URL
   const params = new URLSearchParams(location.search);
   const keyword = params.get('keywords')?.toLowerCase();
   const locationFilter = params.get('location')?.toLowerCase();
   const minSalary = parseInt(params.get('minSalary'));
   const maxSalary = parseInt(params.get('maxSalary'));
 
-  // Fetch jobs
+  // Load jobs from static file and localStorage
   useEffect(() => {
     axios
       .get('/jobs.json')
       .then((response) => {
         const staticJobs = response.data;
-      const localJobs = JSON.parse(localStorage.getItem('customJobs')) || [];
-      const combinedJobs = [...localJobs, ...staticJobs];
-      setJobs(combinedJobs);
+        const localJobs = JSON.parse(localStorage.getItem('customJobs')) || [];
+        const combinedJobs = [...localJobs, ...staticJobs];
+        setJobs(combinedJobs);
       })
       .catch((error) => {
         console.error('Error fetching jobs:', error);
       });
   }, []);
 
-  // Filter logic
+  // Filter jobs by keyword, location, and salary range
   const filteredJobs = jobs.filter((job) => {
-    const jobTitle = job.jobTitle.toLowerCase();
-    const jobLoc = job.jobLocation.toLowerCase();
-    const salaryStr = job.salaryRange.replace(/[^0-9-]/g, '');
-    const [min, max] = salaryStr.split('-').map(Number);
+    const jobTitle = job.jobTitle?.toLowerCase() || '';
+    const jobLoc = job.jobLocation?.toLowerCase() || '';
+    const salaryStr = job.salaryRange?.replace(/[^0-9-]/g, '') || '';
+    const [min = 0, max = Infinity] = salaryStr.split('-').map(Number);
 
     const keywordMatch = !keyword || jobTitle.includes(keyword);
     const locationMatch = !locationFilter || jobLoc.includes(locationFilter);
@@ -62,11 +62,11 @@ export function Seeker() {
       </div>
 
       <div className='row'>
-        {/* Job list */}
+        {/* Job List */}
         <div className='col-md-5'>
-          {Array.isArray(currentJobs) && currentJobs.length > 0 ? (
-            currentJobs.map((job) => (
-              <div key={job.id} className='card mb-3' style={{ cursor: 'pointer' }} onClick={() => setSelectedJob(job)}>
+          {currentJobs.length > 0 ? (
+            currentJobs.map((job, index) => (
+              <div key={index} className='card mb-3' style={{ cursor: 'pointer' }} onClick={() => setSelectedJob(job)}>
                 <div className='card-body'>
                   <h5 className='card-title'>{job.jobTitle}</h5>
                   <h6 className='card-subtitle mb-2 text-muted'>{job.companyName}</h6>
@@ -80,7 +80,7 @@ export function Seeker() {
             <p className='text-muted'>No jobs match your filters.</p>
           )}
 
-          {/* Pagination controls */}
+          {/* Pagination */}
           {totalPages > 1 && (
             <div className='d-flex justify-content-center mt-3 flex-wrap gap-2'>
               <button
@@ -89,7 +89,6 @@ export function Seeker() {
                 disabled={currentPage === 1}>
                 Prev
               </button>
-
               {[...Array(totalPages)].map((_, index) => {
                 const page = index + 1;
                 return (
@@ -101,7 +100,6 @@ export function Seeker() {
                   </button>
                 );
               })}
-
               <button
                 className='btn btn-outline-primary btn-sm'
                 onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
@@ -112,19 +110,23 @@ export function Seeker() {
           )}
         </div>
 
-        {/* Job details */}
+        {/* Job Details */}
         <div className='col-md-7'>
           {selectedJob ? (
             <div className='card'>
               <div className='card-body'>
                 <div className='text-center mb-3'>
-                  <img src={selectedJob.companyLogo} alt={selectedJob.jobTitle} className='img-fluid' />
+                  <img
+                    src={selectedJob.companyLogo || 'https://via.placeholder.com/150'}
+                    alt={selectedJob.jobTitle}
+                    className='img-fluid'
+                  />
                 </div>
                 <h3 className='card-title'>{selectedJob.jobTitle}</h3>
                 <h5 className='card-subtitle mb-3 text-muted'>{selectedJob.companyName}</h5>
                 <p className='card-text'>{selectedJob.jobDescription}</p>
                 <p>
-                  <strong>Requirements:</strong> {selectedJob.jobRequirements}
+                  <strong>Requirements:</strong> {selectedJob.requirements || selectedJob.jobRequirements}
                 </p>
                 <p>
                   <strong>Location:</strong> {selectedJob.jobLocation}
@@ -134,7 +136,7 @@ export function Seeker() {
                 </p>
                 <button
                   className='btn btn-success'
-                  onClick={() => navigate(`/Seeker/${selectedJob.id}${location.search}`)}>
+                  onClick={() => navigate(`/Seeker/${selectedJob.id || selectedJob.jobTitle}${location.search}`)}>
                   Apply Now
                 </button>
               </div>
@@ -149,7 +151,7 @@ export function Seeker() {
 
       <div className='mt-4 text-start'>
         <button className='btn btn-primary' onClick={() => navigate('/')}>
-          back
+          Back
         </button>
       </div>
     </div>
