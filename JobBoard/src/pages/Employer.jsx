@@ -14,27 +14,42 @@ export function Employer() {
     jobType: 'Full-time',
     jobSkills: '',
     jobBenefits: '',
-    companyLogo: '',
+    companyLogo: null,
   });
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.id]: e.target.value });
+    const { id, value, files } = e.target;
+    if (id === 'companyLogo') {
+      setFormData((prev) => ({ ...prev, companyLogo: files[0] }));
+    } else {
+      setFormData((prev) => ({ ...prev, [id]: value }));
+    }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const jobData = {
-      ...formData,
+    const newJob = {
+      id: Date.now(),
+      companyName: formData.companyName,
+      jobTitle: formData.jobTitle,
+      jobDescription: formData.jobDescription,
+      jobRequirements: formData.requirements,
+      jobLocation: formData.jobLocation,
+      salaryRange: formData.salary,
+      jobType: formData.jobType,
       jobSkills: formData.jobSkills.split(',').map(skill => skill.trim()),
       jobBenefits: formData.jobBenefits.split(',').map(benefit => benefit.trim()),
-      jobPostedDate: new Date().toISOString().split('T')[0], // e.g., "2025-05-06"
-      jobExpiryDate: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], // 30 days later
+      companyLogo: formData.companyLogo ? URL.createObjectURL(formData.companyLogo) : '',
+      jobPostedDate: new Date().toISOString().split('T')[0],
+      jobExpiryDate: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
     };
 
-    console.log('Job Data Submitted:', jobData);
+    const existingJobs = JSON.parse(localStorage.getItem('customJobs')) || [];
+    existingJobs.push(newJob);
+    localStorage.setItem('customJobs', JSON.stringify(existingJobs));
 
-    // Here you can proceed to send `jobData` to your backend or pass it to another component/page
+    navigate('/Seeker');
   };
 
   return (
@@ -88,11 +103,11 @@ export function Employer() {
               <input type='text' className='form-control' id='jobBenefits' placeholder='e.g., Remote Work, Health Insurance' onChange={handleChange} />
             </div>
             <div className='mb-3'>
-          <label htmlFor='Company Logo' className='form-label'>
-            Upload Logo<span className='text-danger'>*</span>
-          </label>
-          <input type='file' className='form-control' id='resume' />
-        </div>
+              <label htmlFor='companyLogo' className='form-label'>
+                Upload Logo<span className='text-danger'>*</span>
+              </label>
+              <input type='file' className='form-control' id='companyLogo' onChange={handleChange} />
+            </div>
           </div>
         </div>
 

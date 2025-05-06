@@ -22,7 +22,10 @@ export function Seeker() {
     axios
       .get('/jobs.json')
       .then((response) => {
-        setJobs(response.data);
+        const staticJobs = response.data;
+      const localJobs = JSON.parse(localStorage.getItem('customJobs')) || [];
+      const combinedJobs = [...localJobs, ...staticJobs];
+      setJobs(combinedJobs);
       })
       .catch((error) => {
         console.error('Error fetching jobs:', error);
