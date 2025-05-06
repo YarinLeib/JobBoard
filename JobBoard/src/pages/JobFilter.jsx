@@ -44,7 +44,7 @@ export function JobFilter() {
           />
         </div>
 
-        <button type='submit' className='btn btn-success'>
+        <button type='submit' className='btn btn-primary'>
           Search Jobs
         </button>
       </form>
