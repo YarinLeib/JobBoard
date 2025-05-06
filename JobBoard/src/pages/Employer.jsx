@@ -39,7 +39,7 @@ export function Employer() {
     };
 
     const existingJobs = JSON.parse(localStorage.getItem('customJobs')) || [];
-    existingJobs.push(newJob);
+    existingJobs.push(jobData);
     localStorage.setItem('customJobs', JSON.stringify(existingJobs));
 
     navigate('/Seeker');
