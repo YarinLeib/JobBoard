@@ -6,6 +6,8 @@ import { JobApplication } from './pages/JobApplication';
 import { JobFilter } from './pages/JobFilter';
 import { NotFound } from './pages/NotFound';
 import { Footer } from './components/Footer';
+import { EmployerApply } from './pages/EmployerApply';
+import { EmployerLogin } from './pages/EmployerLogin';
 import './App.css';
 
 function App() {
@@ -19,6 +21,8 @@ function App() {
             <Route path='/seeker' element={<Seeker />} />
             <Route path='/employer' element={<Employer />} />
             <Route path='/seeker/:id' element={<JobApplication />} />
+            <Route path='/employerlogin' element={<EmployerLogin />} />
+            <Route path='/employerapply/:id' element={<EmployerApply />} />
             <Route path='*' element={<NotFound />} />
           </Routes>
         </main>
