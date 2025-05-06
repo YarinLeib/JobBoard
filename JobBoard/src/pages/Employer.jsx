@@ -88,9 +88,11 @@ export function Employer() {
               <input type='text' className='form-control' id='jobBenefits' placeholder='e.g., Remote Work, Health Insurance' onChange={handleChange} />
             </div>
             <div className='mb-3'>
-              <label htmlFor='companyLogo' className='form-label'>Company Logo URL</label>
-              <input type='url' className='form-control' id='companyLogo' placeholder='https://logo.clearbit.com/yourcompany.com' onChange={handleChange} />
-            </div>
+          <label htmlFor='Company Logo' className='form-label'>
+            Upload Logo<span className='text-danger'>*</span>
+          </label>
+          <input type='file' className='form-control' id='resume' />
+        </div>
           </div>
         </div>
 
