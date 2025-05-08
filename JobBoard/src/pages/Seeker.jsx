@@ -58,7 +58,7 @@ export function Seeker() {
         <button className='btn btn-primary position-absolute start-0' onClick={() => navigate('/')}>
           Back
         </button>
-        <h1 className='text-warning text-center w-100 m-0'>JobBoard</h1>
+        <h1 className='text-primary text-center w-100 m-0'>JobBoard</h1>
       </div>
 
       <div className='row'>
