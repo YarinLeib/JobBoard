@@ -22,7 +22,7 @@ function App() {
             <Route path='/employer' element={<Employer />} />
             <Route path='/seeker/:id' element={<JobApplication />} />
             <Route path='/employerlogin' element={<EmployerLogin />} />
-            <Route path='/employerapply/:id' element={<EmployerApply />} />
+            <Route path='/company/:companyName' element={<EmployerApply />} />
             <Route path='*' element={<NotFound />} />
           </Routes>
         </main>
