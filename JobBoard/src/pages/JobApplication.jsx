@@ -13,7 +13,7 @@ export function JobApplication() {
 
   useEffect(() => {
     const localJobs = JSON.parse(localStorage.getItem('customJobs')) || [];
-  
+
     axios.get('/jobs.json').then((response) => {
       const staticJobs = response.data;
       const combinedJobs = [...localJobs, ...staticJobs];
@@ -38,24 +38,37 @@ export function JobApplication() {
 
     const name = document.getElementById('name').value.trim();
     const email = document.getElementById('email').value.trim();
-    const resume = document.getElementById('resume').files[0];
+    const resumeFile = document.getElementById('resume').files[0];
+    const coverLetter = document.getElementById('coverLetter').value.trim();
 
-    if (!name) {
-      alert('Please fill Name.');
+    if (!name || !email || !phone || !resumeFile) {
+      alert('Please fill out all required fields.');
       return;
     }
-    if (!email) {
-      alert('Please fill Email.');
-      return;
-    }
-    if (!phone) {
-      alert('Please fill Phone Number.');
-      return;
-    }
-    if (!resume) {
-      alert('Please upload Resume.');
-      return;
-    }
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      const resumeBase64 = reader.result;
+
+      const newApplication = {
+        id: Date.now(),
+        applicantName: name,
+        email,
+        phone,
+        coverLetter,
+        jobTitle: job.jobTitle,
+        companyName: job.companyName,
+        resume: resumeBase64,
+      };
+
+      const existingApplications = JSON.parse(localStorage.getItem('jobApplications')) || [];
+      existingApplications.push(newApplication);
+      localStorage.setItem('jobApplications', JSON.stringify(existingApplications));
+      alert('Application submitted successfully!');
+      navigate(`/seeker`);
+    };
+
+    reader.readAsDataURL(resumeFile);
   };
 
   return (
