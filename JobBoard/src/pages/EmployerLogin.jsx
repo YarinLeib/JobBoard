@@ -1,13 +1,25 @@
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 export function EmployerLogin() {
   const navigate = useNavigate();
   const [companyName, setCompanyName] = useState('');
   const [error, setError] = useState('');
+  const [validCompanies, setValidCompanies] = useState([]);
 
-  // Example list of valid companies
-  const validCompanies = ['Google', 'Microsoft', 'Amazon', 'OpenAI'];
+  useEffect(() => {
+    const localJobs = JSON.parse(localStorage.getItem('customJobs')) || [];
+
+    axios.get('/jobs.json').then((response) => {
+      const staticJobs = response.data || [];
+      const allJobs = [...localJobs, ...staticJobs];
+
+      const companies = [...new Set(allJobs.map((job) => job.companyName?.trim()).filter(Boolean))];
+
+      setValidCompanies(companies);
+    });
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -15,9 +27,7 @@ export function EmployerLogin() {
 
     if (!trimmedName) return;
 
-    const match = validCompanies.find(
-      (company) => company.toLowerCase() === trimmedName.toLowerCase()
-    );
+    const match = validCompanies.find((company) => company.toLowerCase() === trimmedName.toLowerCase());
 
     if (match) {
       const encodedName = encodeURIComponent(match);
