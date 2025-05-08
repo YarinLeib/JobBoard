@@ -26,7 +26,12 @@ export function JobApplication() {
   }, [id]);
 
   if (!job) {
-    return <div>Loading...</div>;
+    return (
+      <div className='d-flex flex-column justify-content-center align-items-center' style={{ height: '60vh' }}>
+        <div className='spinner-grow text-primary mb-3' role='status' />
+        <h5 className='text-muted'>Loading job details, please wait...</h5>
+      </div>
+    );
   }
 
   const handleBack = () => {
