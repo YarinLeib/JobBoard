@@ -151,6 +151,9 @@ export function Employer() {
         </div>
 
         <div className='text-center'>
+          <button type='' button className='btn btn-primary me-2' onClick={() => navigate('/EmployerLogin')}>
+            Already created a post?
+          </button>
           <button type='submit' className='btn btn-primary me-2'>
             Post Job
           </button>
