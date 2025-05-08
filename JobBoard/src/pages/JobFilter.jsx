@@ -47,6 +47,9 @@ export function JobFilter() {
         <button type='submit' className='btn btn-primary'>
           Search Jobs
         </button>
+        <button type='button' className='btn btn-secondary ms-2' onClick={() => navigate('/')}>
+          Go Back
+        </button>
       </form>
     </div>
   );
