@@ -12,8 +12,15 @@ export function JobApplication() {
   const [phone, setPhone] = useState('');
 
   useEffect(() => {
+    const localJobs = JSON.parse(localStorage.getItem('customJobs')) || [];
+  
     axios.get('/jobs.json').then((response) => {
-      const found = response.data.find((job) => job.id.toString() === id);
+      const staticJobs = response.data;
+      const combinedJobs = [...localJobs, ...staticJobs];
+      const found = combinedJobs.find((job) => {
+        const jobId = job.id?.toString() || job.jobTitle; // fallback for jobs without id
+        return jobId === id;
+      });
       setJob(found);
     });
   }, [id]);
