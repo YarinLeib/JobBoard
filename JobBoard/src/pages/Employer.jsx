@@ -26,8 +26,19 @@ export function Employer() {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const toBase64 = (file) => {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = (error) => reject(error);
+      });
+    };
+
+    const base64Logo = formData.companyLogo ? await toBase64(formData.companyLogo) : '';
 
     const jobData = {
       id: Date.now(),
@@ -40,7 +51,7 @@ export function Employer() {
       jobType: formData.jobType,
       jobSkills: formData.jobSkills.split(',').map((skill) => skill.trim()),
       jobBenefits: formData.jobBenefits.split(',').map((benefit) => benefit.trim()),
-      companyLogo: formData.companyLogo ? URL.createObjectURL(formData.companyLogo) : '', // optional
+      companyLogo: base64Logo,
       jobPostedDate: new Date().toISOString().split('T')[0],
       jobExpiryDate: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
     };
@@ -138,15 +149,6 @@ export function Employer() {
               </label>
               <input type='file' className='form-control' id='companyLogo' onChange={handleChange} />
             </div>
-            {formData.companyLogo && (
-              <div className='mb-3'>
-                <img
-                  src={URL.createObjectURL(formData.companyLogo)}
-                  alt='Preview'
-                  style={{ maxWidth: '100px', maxHeight: '100px', objectFit: 'contain' }}
-                />
-              </div>
-            )}
           </div>
         </div>
 
