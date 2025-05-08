@@ -4,12 +4,26 @@ import { useState } from 'react';
 export function EmployerLogin() {
   const navigate = useNavigate();
   const [companyName, setCompanyName] = useState('');
+  const [error, setError] = useState('');
+
+  // Example list of valid companies
+  const validCompanies = ['Google', 'Microsoft', 'Amazon', 'OpenAI'];
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (companyName.trim()) {
-      const encodedName = encodeURIComponent(companyName.trim());
+    const trimmedName = companyName.trim();
+
+    if (!trimmedName) return;
+
+    const match = validCompanies.find(
+      (company) => company.toLowerCase() === trimmedName.toLowerCase()
+    );
+
+    if (match) {
+      const encodedName = encodeURIComponent(match);
       navigate(`/company/${encodedName}`);
+    } else {
+      setError('Company not found. Please enter a valid company name.');
     }
   };
 
@@ -27,8 +41,12 @@ export function EmployerLogin() {
               className='form-control'
               required
               value={companyName}
-              onChange={(e) => setCompanyName(e.target.value)}
+              onChange={(e) => {
+                setCompanyName(e.target.value);
+                setError('');
+              }}
             />
+            {error && <div className='text-danger mt-2'>{error}</div>}
           </div>
           <button type='submit' className='btn btn-primary w-100'>
             Login
