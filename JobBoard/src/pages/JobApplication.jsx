@@ -15,12 +15,32 @@ export function JobApplication() {
     const localJobs = JSON.parse(localStorage.getItem('customJobs')) || [];
 
     axios.get('/jobs.json').then((response) => {
-      const staticJobs = response.data;
+      const data = response.data;
+
+      const totalJobs = data.companies.length;
+      const staticJobs = Array.from({ length: totalJobs }, (_, i) => ({
+        id: data.companies[i].id,
+        companyName: data.companies[i]?.companyName,
+        jobTitle: data.titles[i]?.jobTitle,
+        jobDescription: data.descriptions[i]?.jobDescription,
+        jobRequirements: data.requirements[i]?.jobRequirements,
+        salaryRange: data.salaries[i]?.salaryRange,
+        jobLocation: data.locations[i]?.jobLocation,
+        jobType: data.types[i]?.jobType,
+        jobPostedDate: data.postedDates[i]?.jobPostedDate,
+        jobExpiryDate: data.expiryDates[i]?.jobExpiryDate,
+        jobSkills: data.skills[i]?.jobSkills,
+        jobBenefits: data.benefits[i]?.jobBenefits,
+        companyLogo: data.logos[i]?.companyLogo,
+      }));
+
       const combinedJobs = [...localJobs, ...staticJobs];
+
       const found = combinedJobs.find((job) => {
-        const jobId = job.id?.toString() || job.jobTitle; // fallback for jobs without id
+        const jobId = job.id?.toString() || job.jobTitle;
         return jobId === id;
       });
+
       setJob(found);
     });
   }, [id]);
