@@ -8,6 +8,8 @@ import { NotFound } from './pages/NotFound';
 import { Footer } from './components/Footer';
 import { EmployerApply } from './pages/EmployerApply';
 import { EmployerLogin } from './pages/EmployerLogin';
+import { EmployerOption } from './pages/EmployerOption';
+import { EmployerEdit } from './pages/EmployerEdit';
 import './App.css';
 
 function App() {
@@ -22,7 +24,9 @@ function App() {
             <Route path='/employer' element={<Employer />} />
             <Route path='/seeker/:id' element={<JobApplication />} />
             <Route path='/employerlogin' element={<EmployerLogin />} />
-            <Route path='/company/:companyName' element={<EmployerApply />} />
+            <Route path='/company/:companyName' element={<EmployerOption />} />
+            <Route path='/company/:companyName/applications' element={<EmployerApply />} />
+            <Route path='/company/:companyName/posts' element={<EmployerEdit />} />
             <Route path='*' element={<NotFound />} />
           </Routes>
         </main>
