@@ -17,12 +17,29 @@ export function Seeker() {
   const minSalary = parseInt(params.get('minSalary'));
   const maxSalary = parseInt(params.get('maxSalary'));
 
-  // Load jobs from static file and localStorage
   useEffect(() => {
     axios
       .get('/jobs.json')
       .then((response) => {
-        const staticJobs = response.data;
+        const data = response.data;
+        const totalJobs = data.companies.length;
+
+        const staticJobs = Array.from({ length: totalJobs }, (_, i) => ({
+          id: data.companies[i].id,
+          companyName: data.companies[i]?.companyName,
+          jobTitle: data.titles[i]?.jobTitle,
+          jobDescription: data.descriptions[i]?.jobDescription,
+          jobRequirements: data.requirements[i]?.jobRequirements,
+          salaryRange: data.salaries[i]?.salaryRange,
+          jobLocation: data.locations[i]?.jobLocation,
+          jobType: data.types[i]?.jobType,
+          jobPostedDate: data.postedDates[i]?.jobPostedDate,
+          jobExpiryDate: data.expiryDates[i]?.jobExpiryDate,
+          jobSkills: data.skills[i]?.jobSkills,
+          jobBenefits: data.benefits[i]?.jobBenefits,
+          companyLogo: data.logos[i]?.companyLogo,
+        }));
+
         const localJobs = JSON.parse(localStorage.getItem('customJobs')) || [];
         const combinedJobs = [...localJobs, ...staticJobs];
         setJobs(combinedJobs);
