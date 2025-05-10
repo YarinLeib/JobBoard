@@ -45,7 +45,7 @@ export function EmployerApply() {
         </div>
       )}
       <div className='btn btn-secondary mt-4' onClick={() => window.history.back()}>
-        Back to Company Page
+        Back to Login Page
       </div>
     </div>
   );
