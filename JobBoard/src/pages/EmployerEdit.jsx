@@ -29,7 +29,7 @@ export function EmployerEdit() {
 
   const handleSave = (job) => {
     axios
-      .put(`https://json-server-backend-jobboard.onrender.com/${job.id}`, job)
+      .put(`https://json-server-backend-jobboard.onrender.com/jobs/${job.id}`, job)
       .then(() => alert('Job updated!'))
       .catch(() => alert('Failed to update.'));
   };
@@ -37,10 +37,14 @@ export function EmployerEdit() {
   const handleDelete = (id) => {
     if (window.confirm('Are you sure you want to delete this job?')) {
       axios
-        .delete(`https://json-server-backend-jobboard.onrender.com/${id}`)
+        .delete(`https://json-server-backend-jobboard.onrender.com/jobs/${id}`)
         .then(() => {
-          setJobs(jobs.filter((job) => job.id !== id));
+          const updatedJobs = jobs.filter((job) => job.id !== id);
+          setJobs(updatedJobs);
           alert('Job deleted!');
+          if (updatedJobs.length === 0) {
+            navigate('/EmployerLogin'); // redirect when all jobs deleted
+          }
         })
         .catch(() => alert('Failed to delete.'));
     }
