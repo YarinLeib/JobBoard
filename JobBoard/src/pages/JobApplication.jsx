@@ -54,7 +54,6 @@ export function JobApplication() {
         resume: resumeBase64,
       };
 
-      // ✅ POST application to json-server
       fetch('http://localhost:5005/jobApplications', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

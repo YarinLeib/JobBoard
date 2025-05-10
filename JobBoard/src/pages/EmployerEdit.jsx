@@ -34,6 +34,18 @@ export function EmployerEdit() {
       .catch(() => alert('Failed to update.'));
   };
 
+  const handleDelete = (id) => {
+    if (window.confirm('Are you sure you want to delete this job?')) {
+      axios
+        .delete(`http://localhost:5005/jobs/${id}`)
+        .then(() => {
+          setJobs(jobs.filter((job) => job.id !== id));
+          alert('Job deleted!');
+        })
+        .catch(() => alert('Failed to delete.'));
+    }
+  };
+
   return (
     <div className='container mt-4'>
       <h2 className='text-center text-primary mb-4'>Edit Jobs for {companyName}</h2>
@@ -114,6 +126,9 @@ export function EmployerEdit() {
             />
             <button className='btn btn-success me-2' onClick={() => handleSave(job)}>
               Save Changes
+            </button>
+            <button className='btn btn-danger' onClick={() => handleDelete(job.id)}>
+              Delete Job
             </button>
             <button className='btn btn-outline-secondary' onClick={() => navigate(-1)}>
               Cancel
