@@ -8,7 +8,7 @@ export function EmployerEdit() {
   const [jobs, setJobs] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5005/jobs').then((res) => {
+    axios.get('https://json-server-backend-jobboard.onrender.com/jobs').then((res) => {
       const allJobs = res.data;
       const filtered = allJobs.filter((job) => job.companyName.toLowerCase() === companyName.toLowerCase());
       setJobs(filtered);
@@ -29,7 +29,7 @@ export function EmployerEdit() {
 
   const handleSave = (job) => {
     axios
-      .put(`http://localhost:5005/jobs/${job.id}`, job)
+      .put(`https://json-server-backend-jobboard.onrender.com/${job.id}`, job)
       .then(() => alert('Job updated!'))
       .catch(() => alert('Failed to update.'));
   };
@@ -37,7 +37,7 @@ export function EmployerEdit() {
   const handleDelete = (id) => {
     if (window.confirm('Are you sure you want to delete this job?')) {
       axios
-        .delete(`http://localhost:5005/jobs/${id}`)
+        .delete(`https://json-server-backend-jobboard.onrender.com/${id}`)
         .then(() => {
           setJobs(jobs.filter((job) => job.id !== id));
           alert('Job deleted!');

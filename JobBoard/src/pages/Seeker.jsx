@@ -19,7 +19,7 @@ export function Seeker() {
 
   useEffect(() => {
     axios
-      .get('http://localhost:5005/jobs')
+      .get('https://json-server-backend-jobboard.onrender.com/jobs')
       .then((response) => {
         setJobs(response.data);
       })

@@ -10,7 +10,7 @@ export function EmployerLogin() {
 
   useEffect(() => {
     axios
-      .get('http://localhost:5005/jobs')
+      .get('https://json-server-backend-jobboard.onrender.com/jobs')
       .then((response) => {
         const jobs = response.data;
 

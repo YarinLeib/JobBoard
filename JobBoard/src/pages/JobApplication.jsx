@@ -13,7 +13,7 @@ export function JobApplication() {
 
   useEffect(() => {
     axios
-      .get('http://localhost:5005/jobs')
+      .get('https://json-server-backend-jobboard.onrender.com/jobs')
       .then((response) => {
         const jobs = response.data;
         const found = jobs.find((job) => job.id.toString() === id);
@@ -54,7 +54,7 @@ export function JobApplication() {
         resume: resumeBase64,
       };
 
-      fetch('http://localhost:5005/jobApplications', {
+      fetch('https://json-server-backend-jobboard.onrender.com/jobApplications', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newApplication),
