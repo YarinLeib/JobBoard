@@ -1,16 +1,22 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
 export function EmployerApply() {
   const [applications, setApplications] = useState([]);
   const { companyName } = useParams();
 
   useEffect(() => {
-    const storedApplications = JSON.parse(localStorage.getItem('jobApplications')) || [];
-
-    const filtered = storedApplications.filter((app) => app.companyName?.toLowerCase() === companyName.toLowerCase());
-
-    setApplications(filtered);
+    axios
+      .get('https://json-server-backend-jobboard.onrender.com/jobApplications')
+      .then((response) => {
+        const allApps = response.data;
+        const filtered = allApps.filter((app) => app.companyName?.toLowerCase() === companyName.toLowerCase());
+        setApplications(filtered);
+      })
+      .catch((error) => {
+        console.error('Error fetching applications:', error);
+      });
   }, [companyName]);
 
   return (
