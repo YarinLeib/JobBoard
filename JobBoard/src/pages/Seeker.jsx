@@ -19,30 +19,9 @@ export function Seeker() {
 
   useEffect(() => {
     axios
-      .get('/jobs.json')
+      .get('http://localhost:5005/jobs')
       .then((response) => {
-        const data = response.data;
-        const totalJobs = data.companies.length;
-
-        const staticJobs = Array.from({ length: totalJobs }, (_, i) => ({
-          id: data.companies[i].id,
-          companyName: data.companies[i]?.companyName,
-          jobTitle: data.titles[i]?.jobTitle,
-          jobDescription: data.descriptions[i]?.jobDescription,
-          jobRequirements: data.requirements[i]?.jobRequirements,
-          salaryRange: data.salaries[i]?.salaryRange,
-          jobLocation: data.locations[i]?.jobLocation,
-          jobType: data.types[i]?.jobType,
-          jobPostedDate: data.postedDates[i]?.jobPostedDate,
-          jobExpiryDate: data.expiryDates[i]?.jobExpiryDate,
-          jobSkills: data.skills[i]?.jobSkills,
-          jobBenefits: data.benefits[i]?.jobBenefits,
-          companyLogo: data.logos[i]?.companyLogo,
-        }));
-
-        const localJobs = JSON.parse(localStorage.getItem('customJobs')) || [];
-        const combinedJobs = [...localJobs, ...staticJobs];
-        setJobs(combinedJobs);
+        setJobs(response.data);
       })
       .catch((error) => {
         console.error('Error fetching jobs:', error);
@@ -82,8 +61,8 @@ export function Seeker() {
         {/* Job List */}
         <div className='col-md-5'>
           {currentJobs.length > 0 ? (
-            currentJobs.map((job, index) => (
-              <div key={index} className='card mb-3' style={{ cursor: 'pointer' }} onClick={() => setSelectedJob(job)}>
+            currentJobs.map((job) => (
+              <div key={job.id} className='card mb-3' style={{ cursor: 'pointer' }} onClick={() => setSelectedJob(job)}>
                 <div className='card-body'>
                   <h5 className='card-title'>{job.jobTitle}</h5>
                   <h6 className='card-subtitle mb-2 text-muted'>{job.companyName}</h6>
@@ -143,7 +122,7 @@ export function Seeker() {
                 <h5 className='card-subtitle mb-3 text-muted'>{selectedJob.companyName}</h5>
                 <p className='card-text'>{selectedJob.jobDescription}</p>
                 <p>
-                  <strong>Requirements:</strong> {selectedJob.requirements || selectedJob.jobRequirements}
+                  <strong>Requirements:</strong> {selectedJob.jobRequirements}
                 </p>
                 <p>
                   <strong>Location:</strong> {selectedJob.jobLocation}
@@ -153,7 +132,7 @@ export function Seeker() {
                 </p>
                 <button
                   className='btn btn-success'
-                  onClick={() => navigate(`/Seeker/${selectedJob.id || selectedJob.jobTitle}${location.search}`)}>
+                  onClick={() => navigate(`/seeker/${selectedJob.id}${location.search}`)}>
                   Apply Now
                 </button>
               </div>

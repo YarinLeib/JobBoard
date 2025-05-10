@@ -6,53 +6,21 @@ import axios from 'axios';
 
 export function JobApplication() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const location = useLocation();
   const [job, setJob] = useState(null);
-  const navigate = useNavigate();
   const [phone, setPhone] = useState('');
 
   useEffect(() => {
-    const localJobs = JSON.parse(localStorage.getItem('customJobs')) || [];
-
-    axios.get('/jobs.json').then((response) => {
-      const data = response.data;
-
-      const totalJobs = data.companies.length;
-      const staticJobs = Array.from({ length: totalJobs }, (_, i) => ({
-        id: data.companies[i].id,
-        companyName: data.companies[i]?.companyName,
-        jobTitle: data.titles[i]?.jobTitle,
-        jobDescription: data.descriptions[i]?.jobDescription,
-        jobRequirements: data.requirements[i]?.jobRequirements,
-        salaryRange: data.salaries[i]?.salaryRange,
-        jobLocation: data.locations[i]?.jobLocation,
-        jobType: data.types[i]?.jobType,
-        jobPostedDate: data.postedDates[i]?.jobPostedDate,
-        jobExpiryDate: data.expiryDates[i]?.jobExpiryDate,
-        jobSkills: data.skills[i]?.jobSkills,
-        jobBenefits: data.benefits[i]?.jobBenefits,
-        companyLogo: data.logos[i]?.companyLogo,
-      }));
-
-      const combinedJobs = [...localJobs, ...staticJobs];
-
-      const found = combinedJobs.find((job) => {
-        const jobId = job.id?.toString() || job.jobTitle;
-        return jobId === id;
-      });
-
-      setJob(found);
-    });
+    axios
+      .get('http://localhost:5005/jobs')
+      .then((response) => {
+        const jobs = response.data;
+        const found = jobs.find((job) => job.id.toString() === id);
+        setJob(found);
+      })
+      .catch((err) => console.error('Failed to fetch jobs:', err));
   }, [id]);
-
-  if (!job) {
-    return (
-      <div className='d-flex flex-column justify-content-center align-items-center' style={{ height: '60vh' }}>
-        <div className='spinner-grow text-primary mb-3' role='status' />
-        <h5 className='text-muted'>Loading job details, please wait...</h5>
-      </div>
-    );
-  }
 
   const handleBack = () => {
     navigate(`/seeker${location.search}`);
@@ -86,20 +54,42 @@ export function JobApplication() {
         resume: resumeBase64,
       };
 
-      const existingApplications = JSON.parse(localStorage.getItem('jobApplications')) || [];
-      existingApplications.push(newApplication);
-      localStorage.setItem('jobApplications', JSON.stringify(existingApplications));
-      alert('Application submitted successfully!');
-      navigate(`/seeker`);
+      // ✅ POST application to json-server
+      fetch('http://localhost:5005/jobApplications', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newApplication),
+      })
+        .then((res) => {
+          if (!res.ok) throw new Error('Submission failed');
+          return res.json();
+        })
+        .then(() => {
+          alert('Application submitted successfully!');
+          navigate(`/seeker`);
+        })
+        .catch((err) => {
+          console.error(err);
+          alert('Something went wrong while submitting.');
+        });
     };
 
     reader.readAsDataURL(resumeFile);
   };
 
+  if (!job) {
+    return (
+      <div className='d-flex flex-column justify-content-center align-items-center' style={{ height: '60vh' }}>
+        <div className='spinner-grow text-primary mb-3' role='status' />
+        <h5 className='text-muted'>Loading job details, please wait...</h5>
+      </div>
+    );
+  }
+
   return (
     <div className='container mt-4 text-center'>
-      <h1 className='text-primary text-center mb-4'>Job Application</h1>
-      <div className='text-center mb-3'>
+      <h1 className='text-primary mb-4'>Job Application</h1>
+      <div className='mb-3'>
         <img src={job.companyLogo} alt={job.jobTitle} className='img-fluid' />
       </div>
       <p>
@@ -124,10 +114,10 @@ export function JobApplication() {
         <strong>Requirements:</strong> {job.jobRequirements}
       </p>
       <p>
-        <strong>Job Skills:</strong> {job.jobSkills.join(', ')}
+        <strong>Job Skills:</strong> {job.jobSkills?.join(', ')}
       </p>
       <p>
-        <strong>Job Benefits:</strong> {job.jobBenefits.join(', ')}
+        <strong>Job Benefits:</strong> {job.jobBenefits?.join(', ')}
       </p>
       <p>
         <strong>Posted on:</strong> {new Date(job.jobPostedDate).toLocaleDateString()}
@@ -136,7 +126,7 @@ export function JobApplication() {
         <strong>Application Deadline:</strong> {new Date(job.jobExpiryDate).toLocaleDateString()}
       </p>
 
-      <form onSubmit={handleSubmit} className='mt-4 position-relative' style={{ overflow: 'visible' }}>
+      <form onSubmit={handleSubmit} className='mt-4'>
         <div className='mb-3'>
           <label htmlFor='coverLetter' className='form-label'>
             Cover Letter

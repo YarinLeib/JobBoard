@@ -56,11 +56,21 @@ export function Employer() {
       jobExpiryDate: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
     };
 
-    const existingJobs = JSON.parse(localStorage.getItem('customJobs')) || [];
-    existingJobs.push(jobData);
-    localStorage.setItem('customJobs', JSON.stringify(existingJobs));
+    try {
+      const res = await fetch('http://localhost:5005/jobs', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(jobData),
+      });
 
-    navigate('/Seeker');
+      if (!res.ok) throw new Error('Failed to post job');
+
+      alert('Job posted successfully!');
+      navigate('/Seeker');
+    } catch (err) {
+      console.error('Error posting job:', err);
+      alert('Error posting job. See console for details.');
+    }
   };
 
   return (

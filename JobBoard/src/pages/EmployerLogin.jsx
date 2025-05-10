@@ -9,32 +9,19 @@ export function EmployerLogin() {
   const [validCompanies, setValidCompanies] = useState([]);
 
   useEffect(() => {
-    const localJobs = JSON.parse(localStorage.getItem('customJobs')) || [];
+    axios
+      .get('http://localhost:5005/jobs')
+      .then((response) => {
+        const jobs = response.data;
 
-    axios.get('/jobs.json').then((response) => {
-      const data = response.data;
-
-      const totalJobs = data.companies.length;
-      const staticJobs = Array.from({ length: totalJobs }, (_, i) => ({
-        id: data.companies[i].id,
-        companyName: data.companies[i]?.companyName,
-        jobTitle: data.titles[i]?.jobTitle,
-        jobDescription: data.descriptions[i]?.jobDescription,
-        jobRequirements: data.requirements[i]?.jobRequirements,
-        salaryRange: data.salaries[i]?.salaryRange,
-        jobLocation: data.locations[i]?.jobLocation,
-        jobType: data.types[i]?.jobType,
-        jobPostedDate: data.postedDates[i]?.jobPostedDate,
-        jobExpiryDate: data.expiryDates[i]?.jobExpiryDate,
-        jobSkills: data.skills[i]?.jobSkills,
-        jobBenefits: data.benefits[i]?.jobBenefits,
-        companyLogo: data.logos[i]?.companyLogo,
-      }));
-
-      const allJobs = [...localJobs, ...staticJobs];
-      const companies = [...new Set(allJobs.map((job) => job.companyName?.trim()).filter(Boolean))];
-      setValidCompanies(companies);
-    });
+        // Extract unique, trimmed company names
+        const companies = [...new Set(jobs.map((job) => job.companyName?.trim()).filter(Boolean))];
+        setValidCompanies(companies);
+      })
+      .catch((err) => {
+        console.error('Failed to fetch companies:', err);
+        setError('Error loading company list.');
+      });
   }, []);
 
   const handleSubmit = (e) => {
