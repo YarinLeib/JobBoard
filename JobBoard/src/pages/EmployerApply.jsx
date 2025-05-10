@@ -19,6 +19,21 @@ export function EmployerApply() {
       });
   }, [companyName]);
 
+  const handleDelete = (id) => {
+    if (window.confirm('Are you sure you want to delete this application?')) {
+      axios
+        .delete(`https://json-server-backend-jobboard.onrender.com/jobApplications/${id}`)
+        .then(() => {
+          setApplications(applications.filter((app) => app.id !== id));
+          alert('Application deleted!');
+        })
+        .catch((error) => {
+          console.error('Error deleting application:', error);
+          alert('Failed to delete application.');
+        });
+    }
+  };
+
   return (
     <div className='container mt-4'>
       <h2 className='text-center text-primary mb-2'>Applications Received</h2>
@@ -45,6 +60,9 @@ export function EmployerApply() {
                   className='btn btn-sm btn-outline-primary'>
                   View Resume
                 </a>
+                <button className='btn btn-sm btn-danger ms-2' onClick={() => handleDelete(app.id)}>
+                  Delete
+                </button>
               </div>
             </div>
           ))}
