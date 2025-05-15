@@ -146,7 +146,7 @@ export function Seeker() {
       </div>
 
       <div className='mt-4 text-start'>
-        <button className='btn btn-primary' onClick={() => navigate('/')}>
+        <button className='btn btn-primary' onClick={() => navigate('/filter')}>
           Back
         </button>
       </div>
