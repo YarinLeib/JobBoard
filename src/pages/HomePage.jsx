@@ -4,12 +4,6 @@ export function HomePage() {
   const navigate = useNavigate();
   return (
     <div>
-      <div className='p-3 mb-4 bg-secondary d-flex align-items-center justify-content-between'>
-        <h1 className='text-warning text-center m-0 flex-grow-1'>JobBoard</h1>
-        <img style={{ width: '55px', height: 'auto' }} src='/logo.png' />
-      </div>
-
-      {/* Centered content */}
       <div
         className='d-flex flex-column align-items-center justify-content-center text-center'
         style={{ height: '70vh' }}>

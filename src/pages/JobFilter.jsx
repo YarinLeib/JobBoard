@@ -25,7 +25,7 @@ export function JobFilter() {
 
       <form onSubmit={handleSearch}>
         <div className='mb-3'>
-          <label>Keywords</label>
+          <label>Title</label>
           <input className='form-control' value={keywords} onChange={(e) => setKeywords(e.target.value)} />
         </div>
 
@@ -46,9 +46,6 @@ export function JobFilter() {
 
         <button type='submit' className='btn btn-primary'>
           Search Jobs
-        </button>
-        <button type='button' className='btn btn-secondary ms-2' onClick={() => navigate('/')}>
-          Go Back
         </button>
       </form>
     </div>

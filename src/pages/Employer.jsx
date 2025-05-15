@@ -169,9 +169,6 @@ export function Employer() {
           <button type='submit' className='btn btn-primary me-2'>
             Post Job
           </button>
-          <button type='button' className='btn btn-secondary' onClick={() => navigate('/')}>
-            Go back
-          </button>
         </div>
       </form>
     </div>

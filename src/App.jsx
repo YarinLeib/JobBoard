@@ -5,17 +5,21 @@ import { Employer } from './pages/Employer';
 import { JobApplication } from './pages/JobApplication';
 import { JobFilter } from './pages/JobFilter';
 import { NotFound } from './pages/NotFound';
+import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { EmployerApply } from './pages/EmployerApply';
 import { EmployerLogin } from './pages/EmployerLogin';
 import { EmployerOption } from './pages/EmployerOption';
 import { EmployerEdit } from './pages/EmployerEdit';
+
 import './App.css';
 
 function App() {
   return (
     <Router>
       <div className='d-flex flex-column min-vh-100'>
+        <Header />
+
         <main className='flex-grow-1'>
           <Routes>
             <Route path='/' element={<HomePage />} />
